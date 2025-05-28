@@ -1,36 +1,90 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🧑‍💻 GitHub Explorer
 
-## Getting Started
+A modern and responsive GitHub Dashboard/Explorer built with **Next.js**, **Tailwind CSS**, and **Axios**, that allows you to search for any GitHub user and view their profile, repositories, and followers in a clean and interactive UI.
 
-First, run the development server:
+🔗 Live Demo: [github-explorer-ivory-eta.vercel.app](https://github-explorer-ivory-eta.vercel.app/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 🚀 Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### 🔍 Search by Username
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- Type in any GitHub username to view their information.
+- Search to fetch profile, repositories, and followers dynamically.
+- Displays an error message if the username does not exist or the API fails.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### 👤 User Profile Page
 
-## Learn More
+- Fetches and displays:
+  - Name
+  - Username
+  - Avatar
+  - Location
+  - Bio
+  - Number of public repositories
+  - Number of followers
+- API Endpoint: `https://api.github.com/users/{username}`
 
-To learn more about Next.js, take a look at the following resources:
+### 📦 Repositories Page
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Fetches all public repositories for the user.
+- Displays:
+  - Repository name
+  - Description
+  - Number of stars
+- Supports sorting repositories by stars (ascending / descending).
+- API Endpoint: `https://api.github.com/users/{username}/repos`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### 🤝 Followers Page
 
-## Deploy on Vercel
+- Fetches all followers for the user (paginated).
+- Displays:
+  - Avatar
+  - Name
+  - Username
+  - Link to follower's GitHub profile
+- Shows total number of followers.
+- API Endpoint: `https://api.github.com/users/{username}/followers`
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## 🛠️ Built With
+
+- [Next.js](https://nextjs.org/)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [Axios](https://axios-http.com/)
+- [GitHub REST API](https://docs.github.com/en/rest)
+
+## 🔧 Setup Instructions
+
+1. **Clone the repository:**
+   ```bash
+   git clone https://github.com/john-papani/github-explorer.git
+   cd github-explorer
+   ```
+2. Install dependencies:
+
+   ```bash
+   npm install --force 
+   ```
+
+3. Set up environment variables:
+   Create a .env file and add your GitHub token:
+
+   ```
+   NEXT_PUBLIC_GITHUB_TOKEN=your_personal_access_token
+   ```
+
+   > A GitHub token is recommended to avoid API rate limits.
+
+4. Run the development server:
+
+   ```
+   npm run dev
+   ```
+
+5. Visit your app:
+
+   Open http://localhost:3000 in your browser.
+   
+
+
+### Total time for project == __ hours
