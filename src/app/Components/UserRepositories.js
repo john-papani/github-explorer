@@ -10,9 +10,6 @@ function UserRepositories({ username, notFound, user }) {
   const [repos, setRepos] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sortOrder, setSortOrder] = useState("desc");
-  const [page, setPage] = useState(1);
-
-  const perPage = 30;
 
   useEffect(() => {
     async function fetchAllRepos() {
@@ -42,6 +39,9 @@ function UserRepositories({ username, notFound, user }) {
         setRepos(allRepos);
       } catch (error) {
         console.error("Failed to fetch all repositories:", error);
+        alert(
+          "Something went wrong while fetching repositories. Please try again later."
+        );
       } finally {
         setLoading(false);
       }
@@ -113,12 +113,12 @@ function UserRepositories({ username, notFound, user }) {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  class="size-5"
+                  className="size-5"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                 </svg>
               ) : (
@@ -127,12 +127,12 @@ function UserRepositories({ username, notFound, user }) {
                   viewBox="0 0 20 20"
                   fill="currentColor"
                   transform="rotate(180)"
-                  class="size-5"
+                  className="size-5"
                 >
                   <path
-                    fill-rule="evenodd"
+                    fillRule="evenodd"
                     d="M9.47 6.47a.75.75 0 0 1 1.06 0l4.25 4.25a.75.75 0 1 1-1.06 1.06L10 8.06l-3.72 3.72a.75.75 0 0 1-1.06-1.06l4.25-4.25Z"
-                    clip-rule="evenodd"
+                    clipRule="evenodd"
                   />
                 </svg>
               )}

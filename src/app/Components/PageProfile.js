@@ -9,7 +9,6 @@ const headers = {
 
 function PageProfile({ username, setNotFound, setUser }) {
   const [user_, setUser_] = useState(null);
-  // const username = "john-papani"; // Replace with desired GitHub username
 
   useEffect(() => {
     async function fetchUser() {
@@ -49,27 +48,31 @@ function PageProfile({ username, setNotFound, setUser }) {
       </div>
     );
   }
-  // if (!user)
-  //   return <div className="text-center mt-16 text-gray-500">Loading...</div>;
 
   return (
     <div className="w-[90%] mx-auto mt-2 p-6 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
       <div className="flex flex-col items-center">
         {user_.avatar_url && (
-          <Image
-            src={user_.avatar_url}
-            alt={user_.name || "GitHub Avatar"}
-            width={128}
-            height={128}
-            className="w-32 h-32 rounded-full shadow-lg"
-          />
+          <a href={user_.html_url} target="_blank" rel="noopener noreferrer">
+            <Image
+              src={user_.avatar_url}
+              alt={user_.name || "GitHub Avatar"}
+              width={128}
+              height={128}
+              className="w-32 h-32 rounded-full shadow-lg hover:scale-105 transition-transform"
+            />
+          </a>
         )}
+
         <h2 className="text-2xl font-bold mt-4 text-zinc-900 dark:text-white">
           {user_.name}
         </h2>
-        <p className="text-zinc-500 dark:text-zinc-400 text-sm">
-          @{user_.login}
-        </p>
+
+        <a href={user_.html_url} target="_blank" rel="noopener noreferrer">
+          <p className="text-zinc-500 dark:text-zinc-400 text-sm italic font-semibold ">
+            @{user_.login}
+          </p>
+        </a>
         {user_.bio && (
           <p className="mt-3 text-center text-zinc-600 dark:text-zinc-300 px-4">
             {user_.bio}

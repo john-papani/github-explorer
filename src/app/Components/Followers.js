@@ -31,6 +31,7 @@ function Followers({ username, notFound, user }) {
         setFollowers(res.data);
       } catch (error) {
         console.error("Failed to fetch followers:", error);
+        alert("Something went wrong while fetching followers.");
       } finally {
         setLoading(false);
       }
@@ -78,7 +79,7 @@ function Followers({ username, notFound, user }) {
         <LoadingSpinner />
       ) : (
         <>
-          <div className="max-h-[500px] overflow-y-auto pr-2 space-y-4 custom-scroll">
+          <div className="max-h-[40vh] overflow-y-auto pr-2 space-y-4 custom-scroll">
             {followers.map((follower) => (
               <div
                 key={follower.id}
