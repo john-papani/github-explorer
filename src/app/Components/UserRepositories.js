@@ -126,8 +126,7 @@ function UserRepositories({ username, notFound, user }) {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  transform="rotate(180)"
-                  className="size-5"
+                  className="size-5 rotate-180"
                 >
                   <path
                     fillRule="evenodd"
