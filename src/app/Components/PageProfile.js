@@ -50,52 +50,54 @@ function PageProfile({ username, setNotFound, setUser }) {
   }
 
   return (
-    <div className="w-[90%] mx-auto mt-2 p-6 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
+    <div className="w-[90%] mx-auto mt-2 p-4 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
       <div className="flex flex-col items-center">
         {user_.avatar_url && (
           <a href={user_.html_url} target="_blank" rel="noopener noreferrer">
             <Image
               src={user_.avatar_url}
               alt={user_.name || "GitHub Avatar"}
-              width={128}
-              height={128}
-              className="w-32 h-32 rounded-full shadow-lg hover:scale-105 transition-transform"
+              width={96}
+              height={96}
+              className="w-24 h-24 rounded-full shadow-md hover:scale-105 transition-transform"
             />
           </a>
         )}
 
-        <h2 className="text-2xl font-bold mt-4 text-zinc-900 dark:text-white">
+        <h2 className="text-xl font-bold mt-2 text-zinc-900 dark:text-white">
           {user_.name}
         </h2>
 
         <a href={user_.html_url} target="_blank" rel="noopener noreferrer">
-          <p className="text-zinc-500 dark:text-zinc-400 text-sm italic font-semibold ">
+          <p className="text-zinc-500 dark:text-zinc-400 text-sm italic font-medium">
             @{user_.login}
           </p>
         </a>
+
         {user_.bio && (
-          <p className="mt-3 text-center text-zinc-600 dark:text-zinc-300 px-4">
+          <p className="mt-2 text-sm text-center text-zinc-600 dark:text-zinc-300 px-2">
             {user_.bio}
           </p>
         )}
+
         {user_.location && (
-          <p className="mt-2 text-sm text-zinc-500 dark:text-zinc-400">
+          <p className="mt-1 text-xs text-zinc-500 dark:text-zinc-400">
             📍 {user_.location}
           </p>
         )}
 
-        <div className="flex justify-around w-full mt-6">
+        <div className="flex justify-around w-full mt-4">
           <div className="text-center">
-            <p className="text-xl font-semibold text-zinc-800 dark:text-white">
+            <p className="text-lg font-semibold text-zinc-800 dark:text-white">
               {user_.public_repos}
             </p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">Repos</p>
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">Repos</p>
           </div>
           <div className="text-center">
-            <p className="text-xl font-semibold text-zinc-800 dark:text-white">
+            <p className="text-lg font-semibold text-zinc-800 dark:text-white">
               {user_.followers}
             </p>
-            <p className="text-sm text-zinc-500 dark:text-zinc-400">
+            <p className="text-xs text-zinc-500 dark:text-zinc-400">
               Followers
             </p>
           </div>

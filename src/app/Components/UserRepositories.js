@@ -81,31 +81,31 @@ function UserRepositories({ username, notFound, user }) {
   }
 
   return (
-    <div className="w-[95%] md:w-3/5 mx-auto p-6 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
+    <div className="w-[95%] lg:w-3/5 mx-auto p-4 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
       {loading ? (
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
+          <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
             Repositories Loading...
           </h2>
-          <p className="italic text-zinc-400 mt-2">
+          <p className="italic text-sm text-zinc-400 mt-1">
             Please wait while we fetch the repositories for {user?.login}.
           </p>
-          <p className="italic text-sm text-zinc-400 mt-2 animate-pulse">
+          <p className="italic text-xs text-zinc-400 mt-1 animate-pulse">
             This may take a few seconds depending on the number of repositories.
           </p>
           <LoadingSpinner />
         </div>
       ) : (
         <div>
-          <div className="flex justify-between items-center mb-6">
-            <h2 className="text-2xl font-bold text-zinc-900 dark:text-white">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-xl font-bold text-zinc-900 dark:text-white">
               Repositories ({user.public_repos})
             </h2>
             <button
               onClick={() =>
                 setSortOrder((prev) => (prev === "asc" ? "desc" : "asc"))
               }
-              className="flex items-center gap-2 text-sm px-4 py-2 bg-blue-600 hover:bg-blue-700 text-white rounded-xl transition"
+              className="flex items-center gap-2 text-xs px-3 py-1.5 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition"
             >
               <span>Sort by Stars</span>
               {sortOrder === "asc" ? (
@@ -113,7 +113,7 @@ function UserRepositories({ username, notFound, user }) {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="size-5"
+                  className="size-4"
                 >
                   <path
                     fillRule="evenodd"
@@ -126,7 +126,7 @@ function UserRepositories({ username, notFound, user }) {
                   xmlns="http://www.w3.org/2000/svg"
                   viewBox="0 0 20 20"
                   fill="currentColor"
-                  className="size-5 rotate-180"
+                  className="size-4 rotate-180"
                 >
                   <path
                     fillRule="evenodd"
@@ -138,24 +138,24 @@ function UserRepositories({ username, notFound, user }) {
             </button>
           </div>
 
-          <div className="max-h-[30rem] md:max-h-[85vh] overflow-y-auto pr-2 space-y-4 custom-scroll">
+          <div className="max-h-[75vh] overflow-y-auto pr-2 space-y-3 custom-scroll">
             {sortedRepos.map((repo) => (
               <div
                 key={repo.id}
-                className="p-4 rounded-xl bg-zinc-100 dark:bg-zinc-800 hover:shadow-lg transition"
+                className="p-3 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:shadow transition"
               >
                 <a
                   href={repo.html_url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-lg font-semibold text-blue-700 dark:text-blue-400 hover:underline"
+                  className="text-base font-semibold text-blue-700 dark:text-blue-400 hover:underline"
                 >
                   {repo.name}
                 </a>
-                <p className="text-sm text-zinc-600 dark:text-zinc-300 mt-1">
+                <p className="text-xs text-zinc-600 dark:text-zinc-300 mt-1">
                   {repo.description || "No description provided."}
                 </p>
-                <p className="text-sm text-zinc-500 dark:text-zinc-400 mt-1">
+                <p className="text-xs text-zinc-500 dark:text-zinc-400 mt-1">
                   ⭐ {repo.stargazers_count} stars
                 </p>
               </div>

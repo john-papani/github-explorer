@@ -14,8 +14,8 @@ export default function Home() {
    
       <GitHubUserSearch onUsernameChange={setUsername} />
 
-      <div className="flex flex-row flex-wrap justify-center items-start gap-5 mt-5 md:mt-10 pb-5">
-        <div className="w-full md:w-1/4 flex flex-col items-center gap-5 mx-auto">
+      <div className="flex flex-row flex-wrap justify-center items-start gap-5 mt-5  pb-5">
+        <div className="w-full lg:w-1/4 flex flex-col items-center gap-5 mx-auto">
           <PageProfile username={username} setNotFound={setNotFound} setUser={setUser}/>
           <Followers username={username} notFound={notFound} user={user}/>
         </div>

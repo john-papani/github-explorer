@@ -70,8 +70,8 @@ function Followers({ username, notFound, user }) {
   }
 
   return (
-    <div className="w-[90%] mx-auto md:mt-16 p-6 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
-      <h2 className="text-2xl font-bold text-center mb-6 text-zinc-900 dark:text-white">
+    <div className="w-[90%] mx-auto md:mt-12 p-4 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
+      <h2 className="text-xl font-bold text-center mb-4 text-zinc-900 dark:text-white">
         Followers {user ? `(${user.followers})` : "Loading..."}
       </h2>
 
@@ -79,29 +79,29 @@ function Followers({ username, notFound, user }) {
         <LoadingSpinner />
       ) : (
         <>
-          <div className="max-h-[40vh] overflow-y-auto pr-2 space-y-4 custom-scroll">
+          <div className="max-h-[28vh] overflow-y-auto pr-2 space-y-3 custom-scroll">
             {followers.map((follower) => (
               <div
                 key={follower.id}
-                className="flex items-center gap-4 p-3 rounded-lg hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
+                className="flex items-center gap-3 p-2 rounded-md hover:bg-zinc-100 dark:hover:bg-zinc-800 transition"
               >
                 <Image
                   src={follower.avatar_url}
                   alt={follower.login}
-                  width={48}
-                  height={48}
+                  width={40}
+                  height={40}
                   className="rounded-full shadow"
                 />
                 <div>
-                  <p className="text-sm text-zinc-500 dark:text-zinc-400">
+                  <p className="text-xs text-zinc-500 dark:text-zinc-400">
                     @{follower.login}
                   </p>
-                  <p className="font-semibold text-zinc-900 dark:text-white">
+                  <p className="font-medium text-sm text-zinc-900 dark:text-white">
                     {follower.login}
                   </p>
                   <a
                     href={follower.html_url}
-                    className="text-sm text-blue-600 dark:text-blue-400 hover:underline"
+                    className="text-xs text-blue-600 dark:text-blue-400 hover:underline"
                     target="_blank"
                     rel="noopener noreferrer"
                   >
@@ -112,21 +112,21 @@ function Followers({ username, notFound, user }) {
             ))}
           </div>
 
-          <div className="flex justify-center gap-4 mt-6">
+          <div className="flex justify-center gap-4 mt-4">
             <button
               onClick={() => setPage((prev) => Math.max(prev - 1, 1))}
               disabled={page === 1}
-              className="px-4 py-2 rounded-lg bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-white disabled:opacity-50"
+              className="px-3 py-1.5 rounded-md bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-white disabled:opacity-50"
             >
               Previous
             </button>
-            <span className="self-center text-sm text-zinc-600 dark:text-zinc-300">
+            <span className="self-center text-xs text-zinc-600 dark:text-zinc-300">
               Page {page} of {totalPages}
             </span>
             <button
               onClick={() => setPage((prev) => Math.min(prev + 1, totalPages))}
               disabled={page === totalPages}
-              className="px-4 py-2 rounded-lg bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-white disabled:opacity-50"
+              className="px-3 py-1.5 rounded-md bg-zinc-200 dark:bg-zinc-700 text-zinc-800 dark:text-white disabled:opacity-50"
             >
               Next
             </button>
