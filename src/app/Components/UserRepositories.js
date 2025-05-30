@@ -39,9 +39,9 @@ function UserRepositories({ username, notFound, user }) {
         setRepos(allRepos);
       } catch (error) {
         console.error("Failed to fetch all repositories:", error);
-        alert(
-          "Something went wrong while fetching repositories. Please try again later."
-        );
+        // alert(
+        //   "Something went wrong while fetching repositories. Please try again later."
+        // );
       } finally {
         setLoading(false);
       }

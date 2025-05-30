@@ -20,6 +20,7 @@ function Followers({ username, notFound, user }) {
     async function fetchFollowersByPage() {
       if (!username) return;
       try {
+        setFollowers([]); // Clear previous followers
         setLoading(true);
         const res = await axios.get(
           `https://api.github.com/users/${username}/followers`,
@@ -31,7 +32,7 @@ function Followers({ username, notFound, user }) {
         setFollowers(res.data);
       } catch (error) {
         console.error("Failed to fetch followers:", error);
-        alert("Something went wrong while fetching followers.");
+        // alert("Something went wrong while fetching followers.");
       } finally {
         setLoading(false);
       }
@@ -44,8 +45,7 @@ function Followers({ username, notFound, user }) {
 
   useEffect(() => {
     setPage(1); // Reset page to 1 when username changes
-    setFollowers([]); // Reset followers when username changes
-  }, [username, notFound]);
+  }, [user, username, notFound]);
 
   if (notFound) {
     return (
@@ -70,7 +70,7 @@ function Followers({ username, notFound, user }) {
   }
 
   return (
-    <div className="w-[90%] mx-auto md:mt-12 p-4 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
+    <div className="w-[90%] mx-auto md:mt-5 p-4 bg-white dark:bg-zinc-900 rounded-3xl shadow-xl">
       <h2 className="text-xl font-bold text-center mb-4 text-zinc-900 dark:text-white">
         Followers {user ? `(${user.followers})` : "Loading..."}
       </h2>
@@ -79,7 +79,7 @@ function Followers({ username, notFound, user }) {
         <LoadingSpinner />
       ) : (
         <>
-          <div className="max-h-[28vh] overflow-y-auto pr-2 space-y-3 custom-scroll">
+          <div className="max-h-[32vh] overflow-y-auto pr-2 space-y-3 custom-scroll">
             {followers.map((follower) => (
               <div
                 key={follower.id}
