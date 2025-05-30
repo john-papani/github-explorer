@@ -48,11 +48,35 @@ export default function GitHubUserSearch({ onUsernameChange }) {
             id="github-search"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
-            className={`pl-10 pr-4 py-2 w-full text-sm rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border ${
+            className={`pl-10 pr-10 py-2 w-full text-sm rounded-xl bg-zinc-100 dark:bg-zinc-800 text-zinc-900 dark:text-white border ${
               error ? "border-red-500" : "border-zinc-300 dark:border-zinc-600"
             } focus:ring-blue-500 focus:border-blue-500 dark:placeholder-zinc-400`}
             placeholder="e.g. john-papani"
           />
+          {/* Clear Button */}
+          {username && (
+            <button
+              type="button"
+              onClick={() => setUsername("")}
+              className="absolute right-2 top-1/2 -translate-y-1/2 text-zinc-500 hover:text-zinc-700 dark:hover:text-white hover:cursor-pointer transition"
+              aria-label="Clear search"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                strokeWidth="1.5"
+                stroke="currentColor"
+                className="size-6"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M6 18 18 6M6 6l12 12"
+                />
+              </svg>
+            </button>
+          )}
         </div>
         <button
           type="submit"
