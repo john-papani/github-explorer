@@ -142,7 +142,7 @@ function UserRepositories({ username, notFound, user }) {
             {sortedRepos.map((repo) => (
               <div
                 key={repo.id}
-                className="p-3 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:shadow transition"
+                className="p-3 rounded-lg bg-zinc-100 dark:bg-zinc-800 hover:dark:bg-zinc-700 hover:bg-zinc-200 transition"
               >
                 <a
                   href={repo.html_url}
