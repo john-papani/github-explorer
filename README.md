@@ -87,4 +87,4 @@ A modern and responsive GitHub Dashboard/Explorer built with **Next.js**, **Tail
    
 
 
-### Total time for project == __ hours
+### Total time for project ~ 9 hours
